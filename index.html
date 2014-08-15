@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>HANK | Home</title> 
+	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile-1.4.2.min.css" /> 
+	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile.icons-1.4.2.min.css" /> 
+	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile.structure-1.4.2.min.css" /> 
+	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile.theme-1.4.2.min.css" />
+	<link rel="stylesheet" type="text/css" href="themes/hnk.css" />
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript">
+	app.initialize();
+	</script>
+</head>
+<body>
+	<div data-role="page" id="Home" data-theme="a">
+		<div data-role="header">
+			<h1 id="main_title">Home</h1>
+			<div data-role="navbar">
+			</div><!-- /navbar -->
+		</div><!-- /header -->
+
+		<div id="content" data-role="content" data-theme="a">
+			<a id="order" href="menu.html" data-transition="slide" rel="external" data-role="button" data-inline="true" data-icon="arrow-r" data-iconpos="right">Order</a>
+			<p></p>
+			<hr>
+		</div>
+	</div>
+	<div data-role="footer">
+		<h4>footer</h4>
+	</div>
+</div>
+<script type="text/javascript" src="inc/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="inc/jquery.mobile-1.4.2.min.js"></script>
+<script type="text/javascript" src="inc/hnk.js"></script>
+
+<script type="text/javascript">
+
+function getServerVars() {
+	localStorage.clear();
+	var apiurl = "http://hmw.dev/rest/shopping?callback=?";
+
+	/**
+	$.getJSON( apiurl, function(data) {
+		//TODO check version if upgrade needed 
+		if (isNaN(data.ts))  { 
+			alert('Cannot load data, Are you connected to the Internet?');
+		} else {
+			enableDiv("#order");
+			//localStorage.setItem('params', JSON.stringify(data.params));
+			localStorage.setItem('ts', data.ts);
+			//TODO get products from API
+			localStorage.setItem('products', data.products);
+		}
+	})
+	.fail( function(d, textStatus, error) {
+		alert('Cannot load data, Are you connected to the Internet?');
+	});
+	**/
+
+	var ts = 1408110097;
+	var params = 
+	{
+		menu_1_price: "11", 
+		menu_2_price: "13", 
+		extracheese_price: "1.5", 
+		extragf_price: "2", 
+		payment_init_url: "http://hmw.dev/rest/payment/",
+		disabled_day: "1",
+		email_paypal: "facilitator@test67.com",
+		extracheese_price: "1.5",
+		extragf_price: "2",
+		max_order_days: "10",
+		max_time: "[21,50]",
+		menu_1_name: "Rapide",
+		menu_1_price: "11",
+		menu_2_name: "Gourmand",
+		menu_2_price: "13",
+		min_time: "[12,10]",
+		opening_fri_f1: "[0,00]",
+		opening_fri_f2: "[15,00]",
+		opening_fri_f3: "[22,00]",
+		opening_fri_t1: "[12,00]",
+		opening_fri_t2: "[19,00]",
+		opening_fri_t3: "[23,59]",
+		opening_mon_f1: "[0,00]",
+		opening_mon_f2: "[15,00]",
+		opening_mon_f3: "[22,00]",
+		opening_mon_t1: "[0,00]",
+		opening_mon_t2: "[21,00]",
+		opening_mon_t3: "[23,59]",
+		opening_sat_f1: "[0,00]",
+		opening_sat_f2: "[15,00]",
+		opening_sat_f3: "[22,00]",
+		opening_sat_t1: "[12,00]",
+		opening_sat_t2: "[19,00]",
+		opening_sat_t3: "[23,59]",
+		opening_sun_f1: "[0,00]",
+		opening_sun_f2: "[15,00]",
+		opening_sun_f3: "[16,01]",
+		opening_sun_t1: "[12,00]",
+		opening_sun_t2: "[16,00]",
+		opening_sun_t3: "[23,59]",
+		opening_thu_f1: "[0,00]",
+		opening_thu_f2: "[15,00]",
+		opening_thu_f3: "[22,00]",
+		opening_thu_t1: "[12,00]",
+		opening_thu_t2: "[19,00]",
+		opening_thu_t3: "[23,59]",
+		opening_tue_f1: "[0,00]",
+		opening_tue_f2: "[15,00]",
+		opening_tue_f3: "[16,01]",
+		opening_tue_t1: "[12,00]",
+		opening_tue_t2: "[16,00]",
+		opening_tue_t3: "[23,59]",
+		opening_wed_f1: "[0,00]",
+		opening_wed_f2: "[15,00]",
+		opening_wed_f3: "[22,00]",
+		opening_wed_t1: "[12,00]",
+		opening_wed_t2: "[19,00]",
+		opening_wed_t3: "[23,59]",
+		payment_init_url: "http://hmw.dev/rest/payment/",
+		url_paypal_cancel: "http://localhost/test.php",
+		url_paypal_success: "http://localhost/test.php"
+	};
+	
+	var products = '{"1":{"id":1,"name":"Aristocrate","price":"7","type":1,"image":"tmp.png","att":"","detail":"Veggie steak, sauce coktail, salad"},"2":{"id":2,"name":"Tata Monique","price":"7","type":1,"image":"tmp.png","att":"","detail":""},"3":{"id":3,"name":"Touriste","price":"11","type":1,"image":"tmp.png","att":"extra_5","detail":""},"4":{"id":4,"name":"French Fries","price":"3","type":2,"image":"tmp.png","att":"fries","detail":""},"5":{"id":5,"name":"Colesaw","price":"3","type":2,"image":"tmp.png","att":"","detail":""},"6":{"id":6,"name":"Orange juice","price":"2","type":3,"image":"tmp.png","att":"","detail":""},"7":{"id":7,"name":"Cola","price":"3","type":3,"image":"tmp.png","att":"","detail":""},"8":{"id":8,"name":"Citrouille juice","price":"2","type":3,"image":"tmp.png","att":"","detail":""},"9":{"id":9,"name":"Cookies","price":"2","type":4,"att":"","image":"tmp.png","att":"","detail":""},"10":{"id":10,"name":"Carrot cake","price":"4","type":4,"image":"tmp.png","att":"","detail":""},"11":{"id":11,"name":"Sorbet framboise","price":"3","type":4,"image":"tmp.png","att":"","detail":""},"12":{"id":12,"name":"Binoude","price":"3","type":3,"image":"tmp.png","att":"","detail":""},"13":{"id":13,"name":"Beer","price":"4.5","type":3,"image":"tmp.png","att":"extra_2","detail":""},"14":{"id":14,"name":"Wine","price":"4.5","type":3,"image":"tmp.png","att":"extra_2","detail":""},"15":{"id":15,"name":"Ketchup","price":"0","type":100,"image":"tmp.png","att":"","detail":""},"16":{"id":16,"name":"Moutarde","price":"0","type":100,"image":"tmp.png","att":"","detail":""},"17":{"id":17,"name":"Salad Sauce","price":"0","type":100,"image":"tmp.png","att":"","detail":""}}';
+
+	localStorage.setItem('products', products);
+	localStorage.setItem('params', JSON.stringify(params));
+	localStorage.setItem('ts', ts);
+}
+
+//check if device support localstorage otherwise let the order button hidden
+if(typeof(Storage)!=="undefined") {
+	getServerVars();
+	enableDiv("#order");
+} else {
+	alert('You must use a recent device to use this service.');
+}
+//$("#order").parent().hide();
+</script>
+</body>
+</html>
