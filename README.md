@@ -3,7 +3,8 @@ HNKmobile
 
 HNKmobile is a shopping mobile website mainly made with jQuery mobile and simplecart(js) targeted to be used with PhoneGap http://phonegap.com/ and so to be used in an app running on iOS, Android, Blackberry and whatever PhoneGap would support. It support the main payment providers like Paypal, Google Checkout... .   
 You need to know javascript to modify the app up to your wishes.  
-HNKmobile was originally developed to be used to take online order for a vegan burger restaurant in Paris.  
+HNKmobile was originally developed to be used to take online order for a vegan burger restaurant in Paris.   
+Demo : http://hnkmobile.doleans.net
 
 It use : 
 
