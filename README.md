@@ -21,7 +21,7 @@ Dual licensed under the MIT or GPL licenses.
 There is only 2 HTML pages.  
 The first one load the datas and the second take the orders.  
 You can theme it by using jQuery mobile theme.  
-For demo purpose the datas are directly written in the index.html page but they should be sent by an API, a rest server under CodeIgniter was originally used: code: https://github.com/fanzila/hnk/blob/master/hmw/application/controllers/rest.php
+For demo purpose the datas are directly written in the index.html page but they should be sent by an API, a rest server under CodeIgniter was originally used: code: https://github.com/fanzila/HMW/blob/master/hmw/application/controllers/rest.php
 
 ## Tests
 Tested ok on Chrome v35.0.1916.114  
