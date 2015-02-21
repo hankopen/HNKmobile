@@ -154,11 +154,11 @@
 			line = item.get('name');
 			if(item.get('stype') >=1000 ) {
 				line = line + "<br />" + t._('Burger:') + ' ' + getPdtName(item.get('burger'));
-				line = line + "<br />" + t._('Drink:') + ' ' + getPdtName(item.get('drink'));
-				line = line + "<br />" + t._('Side:') + ' ' + getPdtName(item.get('side'));
-				if(item.get('dessert') >0 ) line = line + "<br />" + t._('Dessert:') + ' ' + getPdtName(item.get('dessert'));
+				line = line + "<br />" + t._('Drink:') + ' ' + translateText(getPdtName(item.get('drink')));
+				line = line + "<br />" + t._('Side:') + ' ' + translateText(getPdtName(item.get('side')));
+				if(item.get('dessert') >0 ) line = line + "<br />" + t._('Dessert:') + ' ' + translateText(getPdtName(item.get('dessert')));
 			}
-			if(item.get('friessauce') >0 ) line = line + "<br />" + t._('Sauce: ') + getPdtName(item.get('friessauce'));
+			if(item.get('friessauce') >0 ) line = line + "<br />" + t._('Sauce: ') + translateText(getPdtName(item.get('friessauce')));
 			if(item.get('extracheese') >0 ) line = line + "<br />+ " + t._('vegan cheese');
 			if(item.get('extragf') >0 ) line = line + "<br />+ " + t._('gluten free option');
 			return line;

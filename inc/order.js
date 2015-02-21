@@ -135,13 +135,13 @@ function show(type, menu_type) {
 	</select>';
 	var sauce_select = '<label for="item_friessauce" class="select">' + $.i18n._('Sauce:') + '</label><select id="item_friessauce" name="item_friessauce" class="item_friessauce"><option value="' + 0 + '">' + $.i18n._('none') + '</option>';
 	$.each(products, function(key, val) { 
-		if(val.type == 100) sauce_select = sauce_select + '<option value="' + val.id + '">' + val.name + '</option>';
+		if(val.type == 100) sauce_select = sauce_select + '<option value="' + val.id + '">' + translateText(val.name) + '</option>';
 	});
 	sauce_select = sauce_select + '</select>';
 
 	if(type == 'menu_choose') {
-		contain = '<a onclick="show(\'menu_create\',1);" href="#"><img width="285" height="175" class="item_thumb" src="' + params.img_path + params.menu_1_img + '"></a> <br /> <a onclick="show(\'menu_create\',1);" href="#">' + $.i18n._('burger + side + drink') + ' ' + params.menu_1_price + '€</a>  <br /> <hr align="left" width="285" /> \
-		<a onclick="show(\'menu_create\',2);" href="#"><img class="item_thumb" width="285" height="175" src="' + params.img_path + params.menu_2_img + '"></a> <br /> <a onclick="show(\'menu_create\',2);" href="#">' + $.i18n._('burger + side + drink + dessert') + ' ' + params.menu_2_price + '€</a> <br />';
+		contain = '<a onclick="show(\'menu_create\',1);" href="#"><img class="item_thumb" src="' + params.img_path + params.menu_1_img + '"></a> <br /> <a onclick="show(\'menu_create\',1);" href="#">' + $.i18n._('burger + side + drink') + ' ' + params.menu_1_price + '€</a>  <br /> <hr align="left" width="285" /> \
+		<a onclick="show(\'menu_create\',2);" href="#"><img class="item_thumb" src="' + params.img_path + params.menu_2_img + '"></a> <br /> <a onclick="show(\'menu_create\',2);" href="#">' + $.i18n._('burger + side + drink + dessert') + ' ' + params.menu_2_price + '€</a> <br />';
 	}
 	if(type == 'menu_create') {
 		var menu_name	= params.menu_1_name;
@@ -157,7 +157,7 @@ function show(type, menu_type) {
 		}
 
 		contain = contain + '<div class="simpleCart_shelfItem"> \
-		<img class="item_thumb" width="100%" height="100%" src="' + menu_img + '"> \
+		<img class="item_thumb" src="' + menu_img + '"> \
 		<h2 class="item_name">' + menu_name + ' ' + $.i18n._('Menu') + '</h2><span class="item_price">' + menu_price + '</span>€';
 		contain = contain + '<span style="display: none;" class="item_stype">' + stype + '</span>';
 
@@ -177,7 +177,7 @@ function show(type, menu_type) {
 
 		contain = contain + '<label for="item_side" class="select">' + $.i18n._('Side:') +'</label><select id="item_side" name="item_side" class="item_side">';
 		$.each(products, function(key, val) { 
-			if(val.type == 2) contain = contain + '<option value="' + val.id + '">' + val.name + '</option>';
+			if(val.type == 2) contain = contain + '<option value="' + val.id + '">' + translateText(val.name) + '</option>';
 		});
 
 		contain = contain + '</select>' + sauce_select;
@@ -189,7 +189,7 @@ function show(type, menu_type) {
 				var extra_price = val.att.split("_"); 
 				var extra = '+' + extra_price[1] + '€';
 			}
-			if(val.type == 3) contain = contain + '<option value="' + val.id + '">' + val.name + ' ' + extra + '</option>';	
+			if(val.type == 3) contain = contain + '<option value="' + val.id + '">' + translateText(val.name) + ' ' + extra + '</option>';	
 		});
 		contain = contain + '</select>';
 
@@ -212,20 +212,16 @@ function show(type, menu_type) {
 				var detail = translateText(val.detail);
 
 				contain = contain + '<div class="simpleCart_shelfItem"> \
-				<table border="0"><tr><td><h2 class="item_name">' + val.name + '</h2><span class="item_price">' + val.price + '</span>€</h2></td></tr>';
+				<table border="0"><tr><td><h2 class="item_name">' + translateText(val.name) + '</h2><span class="item_price">' + val.price + '</span>€</h2></td></tr>';
 
 				//Avoid missing image in cart if product has not
 				if(val.image) {
 					var product_img			= params.img_path + val.image;
-					var product_img_width	= '100%';
-					var product_img_height	= '100%';
 				} else {
 					var product_img = params.img_path + 'pix.png';
-					var product_img_width	= 1;
-					var product_img_height	= 1;
 				}
 				
-				contain = contain + '<tr><td><img class="item_thumb" width="' + product_img_width + '" height="' + product_img_height + '" src="' + product_img + '"></td></tr>';
+				contain = contain + '<tr><td><img class="item_thumb" src="' + product_img + '"></td></tr>';
 
 				if(detail) {
 					contain = contain + '<tr><td> ' + detail + ' <br /><br /></td></tr>';

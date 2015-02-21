@@ -24,8 +24,7 @@
 }
 
 .simpleCart_items img {
-	max-width: 50px;
-	max-height: 31px;
+	max-width: 100px;
 }
 
 .simpleCart_items td{
@@ -35,7 +34,6 @@
 
 }
 .item-image,
-.item-image img{width:50px;}
 .item-name{width:50%;}
 .item-quantity,
 .item-quantity input{
