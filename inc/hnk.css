@@ -11,7 +11,7 @@
 .simpleCart_items th{
 	color:#333;
 	text-align:left;
-	padding:10px 30px;
+	padding: 10px 5px;
 	border-bottom:1px solid #ccc;
 	background: #ededed;
 	background: -moz-linear-gradient(top,  #f7f7f7 0%, #ededed 100%);
@@ -24,26 +24,26 @@
 }
 
 .simpleCart_items img {
-	max-width: 285px;
-	max-height: 175px;
+	max-width: 50px;
+	max-height: 31px;
 }
 
 .simpleCart_items td{
-	padding:10px 30px;
+	padding: 10px 5px;
 	vertical-align:middle;
 	border-bottom:1px solid #ccc;
 
 }
 .item-image,
-.item-image img{width:72px;}
+.item-image img{width:50px;}
 .item-name{width:50%;}
 .item-quantity,
 .item-quantity input{
-	width:30px;
+	width:10px;
 	text-align:center;
 }
 .item-price,
-.item-subtotal{width:50px;}
+.item-subtotal{width:10px;}
 
 .form-invalid {
 	

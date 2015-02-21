@@ -157,7 +157,7 @@ function show(type, menu_type) {
 		}
 
 		contain = contain + '<div class="simpleCart_shelfItem"> \
-		<img class="item_thumb" width="791" height="445" src="' + menu_img + '"> \
+		<img class="item_thumb" width="100%" height="100%" src="' + menu_img + '"> \
 		<h2 class="item_name">' + menu_name + ' ' + $.i18n._('Menu') + '</h2><span class="item_price">' + menu_price + '</span>€';
 		contain = contain + '<span style="display: none;" class="item_stype">' + stype + '</span>';
 
@@ -217,8 +217,8 @@ function show(type, menu_type) {
 				//Avoid missing image in cart if product has not
 				if(val.image) {
 					var product_img			= params.img_path + val.image;
-					var product_img_width	= 791;
-					var product_img_height	= 445;
+					var product_img_width	= '100%';
+					var product_img_height	= '100%';
 				} else {
 					var product_img = params.img_path + 'pix.png';
 					var product_img_width	= 1;
@@ -241,7 +241,7 @@ function show(type, menu_type) {
 				if(val.type == 2) {
 					contain = contain + '<tr><td>' + sauce_select  + '</tr></td>';
 				}
-				contain = contain + '<tr><td><input type="submit" id="submit" class="item_add" value="' +$.i18n._('Add to Cart') + '" /><br /><hr align="left" width="791" /></td></tr></table></div>';
+				contain = contain + '<tr><td><input type="submit" id="submit" class="item_add" value="' +$.i18n._('Add to Cart') + '" /><br /><hr align="left" width="100%" /></td></tr></table></div>';
 			}
 		});
 	}
