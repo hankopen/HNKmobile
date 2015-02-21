@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<title>Menu</title> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="msapplication-tap-highlight" content="no" />
+	<link rel="stylesheet" href="themes/hank.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile.structure-1.4.5.min.css" /> 
+	<link rel="stylesheet" type="text/css" href="inc/hnk.css" />
+
+	<script type="text/javascript" src="js/index.js"></script>
+	<script type="text/javascript" src="inc/simpleCart.min.js"></script>
+</head>
+<body>
+
+<script>
+localStorage.clear();
+function test() {
+	var contain ='';
+	contain = contain + '<label for="item_drink" class="select">Drink:</label><select id="item_drink" name="item_drink" class="item_drink">';
+	contain = contain + '<option value="9">cola bio</option><option value="2">bionade</option>';
+	contain = contain + '</select>';
+
+	document.getElementById("main").innerHTML = contain;
+
+	$('#item_drink').selectmenu();
+	$('#item_drink').selectmenu("refresh");
+
+	var val = $( "select.item_drink option:selected").val();
+
+	alert(val);
+}
+
+</script>
+
+<script>
+simpleCart({
+	checkout: {
+		type: "PayPal",
+		email: "you@yours.com"
+	}
+});
+</script>
+
+<a href="#" onclick="test()">var</a>
+
+<div class="simpleCart_shelfItem">
+
+	<div id="main">
+	</div>
+
+	<a class="item_add" href="javascript:;"> Add to Cart </a>
+</div>
+
+<script type="text/javascript" src="inc/jquery-1.11.2.min.js"></script>
+<script type="text/javascript" src="inc/jquery.mobile-1.4.5.min.js"></script>
+
+</body>
+</html>

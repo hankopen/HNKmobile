@@ -3,102 +3,91 @@
 <head>
 	<meta charset="utf-8" />
 	<title>HANK | Menu</title> 
-	<!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" type="text/css" href="css/index.css" />
 	<meta name="msapplication-tap-highlight" content="no" />
-	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile-1.4.2.min.css" /> 
-	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile.icons-1.4.2.min.css" /> 
-	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile.structure-1.4.2.min.css" /> 
-	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile.theme-1.4.2.min.css" />
-	<link rel="stylesheet" type="text/css" href="themes/hnk.css" />
+	<link rel="stylesheet" href="themes/hank.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile.structure-1.4.5.min.css" /> 
 	<link rel="stylesheet" href="inc/pickadate/lib/themes/default.css" id="theme_base">
 	<link rel="stylesheet" href="inc/pickadate/lib/themes/default.date.css" id="theme_date">
 	<link rel="stylesheet" href="inc/pickadate/lib/themes/default.time.css" id="theme_time">
+	<link rel="stylesheet" type="text/css" href="inc/hnk.css" />
 	<script type="text/javascript" src="js/index.js"></script>
-
 </head>
 <body>
 	<div data-role="page" id="menu" data-theme="a">
 		<div data-role="header" data-theme="a">
 
 			<div data-role="header">
-				<a href="index.html" rel="external" data-transition="slide" data-icon="back">Back</a>
+				<a href="index.html" rel="external" data-transition="none" id="bt-back" data-icon="carat-l">Back</a>
 				<h1 id="main_title">Menu</h1>
-				<a href="#cart" rel="external" data-transition="slidedown" data-icon="grid"><span class="simpleCart_quantity"></span> items | <span class="simpleCart_grandTotal"></span></a>
+				<a href="#cart" rel="external" data-transition="none" data-icon="shop"><span class="simpleCart_quantity"></span> items | <span class="simpleCart_grandTotal"></span></a>
 			</div>
 			<div id="navbar" data-role="navbar">
 				<ul>
-					<li><a data-icon="arrow-d" onclick="show('menu_choose',0);" href="#menu">Menus</a></li>
-					<li><a data-icon="arrow-d" onclick="show(1,0);" href="#menu">Burgers</a></li>
-					<li><a data-icon="arrow-d" onclick="show(2,0);" href="#menu">Side</a></li>
-					<li><a data-icon="arrow-d" onclick="show(3,0);" href="#menu">Drinks</a></li>
-					<li><a data-icon="arrow-d" onclick="show(4,0);" href="#menu">Desserts</a></li>
+					<li><a id="bt-menus" data-icon="carat-d" onclick="show('menu_choose',0);" href="#menu">Menus</a></li>
+					<li><a id="bt-burgers" data-icon="carat-d" onclick="show(1,0);" href="#menu">Burgers</a></li>
+					<li><a id="bt-sides" data-icon="carat-d" onclick="show(2,0);" href="#menu">Sides</a></li>
+					<li><a id="bt-drinks" data-icon="carat-d" onclick="show(3,0);" href="#menu">Drinks</a></li>
+					<li><a id="bt-desserts" data-icon="carat-d" onclick="show(4,0);" href="#menu">Desserts</a></li>
 				</ul>
 			</div><!-- /navbar -->
 		</div><!-- /header -->
 		<div id="content" data-role="content">
-			<div id="main">Please choose your items</div>
-		</div>
-		<div data-role="footer">
-			<h4>footer</h4>
+			<div data-theme="a" data-form="ui-body-a" class="ui-body ui-body-a ui-corner-all"><p><div id="main">Please choose your items</div></p></div>
 		</div>
 	</div>
 	<div data-role="page" id="cart" data-theme="a">
 		<div data-role="header">
-			<a href="#menu" rel="external" data-transition="slide" data-icon="back">Menu</a>
-			<h1 id="main_title">Cart</h1>
+			<a href="#menu" rel="external" id="bt-menu" data-transition="none" data-icon="carat-l">Menu</a>
+			<h1 id="main_title"><div id="title_cart">Cart</div></h1>
 		</div><!-- /header -->
-		<div id="content" data-role="content">
+		<div id="content" data-role="content" data-theme="a">
 			<div class="simpleCart_items"></div>
 			<p></p>
-			grandTotal : <span class="simpleCart_grandTotal"></span><br />
-			Total : <span class="simpleCart_total"></span>
+			<div id="cart_total">Total VAT:</div> <span class="simpleCart_total"></span>
 			<br /> 
-
 			<span id="nbmenu1"></span><span id="nbmenu2"></span>
 			<br /> 
-
 			<p></p>
-			<a href="javascript:;" class="simpleCart_empty" data-role="button" data-icon="delete" data-inline="true">Empty cart</a>
-			<a href="#pickup" rel="external" data-transition="slide" data-role="button" data-icon="arrow-r" data-inline="true">Checkout</a>
+			<a id="bt-empty_cart" href="javascript:;" class="simpleCart_empty" data-role="button" data-icon="delete" data-inline="true">Empty cart</a>
+			<a id="bt-checkout" href="#" rel="external" data-transition="none" onclick="checkEmptyCart()" data-role="button" data-icon="carat-r" data-inline="true">Checkout</a>
 		</div>
 	</div>
 	<div data-role="page" id="pickup" data-theme="a">
 		<div data-role="header">
-			<a href="#cart" data-transition="slide" data-icon="back">Cart</a>
-			<h1 id="main_title">Pickup</h1>
-			<a href="#cart" rel="external" data-transition="slidedown" data-icon="grid"><span class="simpleCart_quantity"></span> items | <span class="simpleCart_grandTotal"></span></a>
+			<a id="bt-cart" href="#cart" data-transition="none" data-icon="carat-l">Cart</a>
+			<h1 id="main_title"><div id="title_pickup">Pickup</div></h1>
+			<a href="#cart" rel="external" data-transition="none" data-icon="grid"><span class="simpleCart_quantity"></span> items | <span class="simpleCart_grandTotal"></span></a>
 		</div>
-		<div id="content" data-role="content">
+		<div id="content" data-role="content" data-theme="a">
 			<form id="order" name="order">
-				<p>When do you want to pick it up ?</p>
-				<input id="datepicker" class="datepicker" type="text" required/>
+				<p id="order-when">When do you want to pick it up ?</p>
+				<input id="datepicker" name="datepicker" class="datepicker" type="text" required/>
 				<p></p>
-				<input id="timepicker" class="timepicker" type="text" required/>   
+				<input id="timepicker" name="timepicker" class="timepicker" type="text" required/>
 				<p></p>
-				Our restaurant is open from xx to xx from Monday to Saturday.
-				<p></p>
-				<label for="phone">Your phone number</label>   
+				<label id="order-phone" for="phone">Your phone number:</label>   
 				<input name="phone" id="phone" value="" required/>
 				<p></p>
-				<label for="email">Your email </label>   
+				<label id="order-email" for="email">Your email:</label>   
 				<input name="email" id="email" value="" required/>
 				<p></p>
-				<label for="name">Your name </label>   
+				<label id="order-name" for="name">Your name:</label>   
 				<input name="name" id="name" value="" required/>
+				<p id="order-total">Total order:</p> <span class="simpleCart_grandTotal"></span>
 				<p></p>
-				Total order : <span class="simpleCart_grandTotal"></span>
-				<p></p>
-				<input type="submit" value="Checkout" onclick="goCheckout();" rel="external" data-transition="slide" data-icon="arrow-r" data-role="button" data-inline="true"/>
+				<input id="order-checkout" type="submit" value="Checkout" onclick="goCheckout();" rel="external" data-transition="none" data-icon="carat-r" data-role="button" data-inline="true"/>
 			</form>
 		</div>
 	</div>
 
-	<script type="text/javascript" src="inc/jquery-1.11.1.min.js"></script>
-	<script type="text/javascript" src="inc/jquery.mobile-1.4.2.min.js"></script>
+	<script type="text/javascript" src="inc/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="inc/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="inc/simpleCart.min.js"></script>
 	<script type="text/javascript" src="inc/jquery.validate.min.js"></script>
+	<script type="text/javascript" src="inc/jquery.i18n.min.js"></script>
+	<script type="text/javascript" src="inc/dico.js"></script>
 	<script type="text/javascript" src="inc/hnk.js"></script>
 	<script src="inc/pickadate/lib/picker.js"></script>
 	<script src="inc/pickadate/lib/picker.date.js"></script>
@@ -106,392 +95,193 @@
 	<script src="inc/pickadate/lib/legacy.js"></script>
 	<script src="inc/pickadate/demo/scripts/demo.js"></script>
 	<script src="inc/pickadate/demo/scripts/rainbow.js"></script>
+	<script type="text/javascript" src="inc/order.js"></script>
 	<script type="text/javascript">	
 
-	function returnObj(str) {
-		return eval('{' + str + '}');
-	}
+	//translation init
+	var t = $.i18n;
 
-	function setTimepicker(hours) {
-		picker_time.render(true);
-		//mandatory to empty the object 
-		picker_time.set('disable', true) 
-		picker_time.set('enable', true)
-		//and then set the disable time again
-		picker_time.set({
-			disable: [
-			{ from: hours.f1 , to: hours.t1 }, 
-			{ from: hours.f2 , to: hours.t2 },
-			{ from: hours.f3 , to: hours.t3 }
-			]
-		})
-	}
-
-	/** 
-	disabled_day : syntax : 0 = Sun, 1 = Mon ... - for many : 1,2...
-	max_order_days : nb of days max to show from now
-	min_time : minimum opening hours
-	max_time : maximum opening hours
-	**/
-	
 	var products = JSON.parse(localStorage["products"]);
 	var params = JSON.parse(localStorage["params"]);
-	var min_time = returnObj(params.min_time);
-	var max_time = returnObj(params.max_time);
-
-	$('#timepicker').val('Please select a date');
+	
+	//date & time picker init
+	$('#timepicker').val(t._('Please select a date'));
 	$('.timepicker').textinput({ disabled: true });
-
-	function getHours(day) {
-		var hours;		
-		switch (day) {
-			case 'Mon':
-			hours = {f1:returnObj(params.opening_mon_f1), t1:returnObj(params.opening_mon_t1), f2:returnObj(params.opening_mon_f2), t2:returnObj(params.opening_mon_t2), f3:returnObj(params.opening_mon_f3), t3:returnObj(params.opening_mon_t3)};
-			break;
-			case 'Tue':
-		    hours = {f1:returnObj(params.opening_tue_f1), t1:returnObj(params.opening_tue_t1), f2:returnObj(params.opening_tue_f2), t2:returnObj(params.opening_tue_t2), f3:returnObj(params.opening_tue_f3), t3:returnObj(params.opening_tue_t3)};
-			break;
-			case 'Wed':
-			hours = {f1:returnObj(params.opening_wed_f1), t1:returnObj(params.opening_wed_t1), f2:returnObj(params.opening_wed_f2), t2:returnObj(params.opening_wed_t2), f3:returnObj(params.opening_wed_f3), t3:returnObj(params.opening_wed_t3)};
-			break;
-			case 'Thu':
-			hours = {f1:returnObj(params.opening_thu_f1), t1:returnObj(params.opening_thu_t1), f2:returnObj(params.opening_thu_f2), t2:returnObj(params.opening_thu_t2), f3:returnObj(params.opening_thu_f3), t3:returnObj(params.opening_thu_t3)};
-			break;
-			case 'Fri':
-			hours = {f1:returnObj(params.opening_fri_f1), t1:returnObj(params.opening_fri_t1), f2:returnObj(params.opening_fri_f2), t2:returnObj(params.opening_fri_t2), f3:returnObj(params.opening_fri_f3), t3:returnObj(params.opening_fri_t3)};
-			break;
-			case 'Sat':
-			hours = {f1:returnObj(params.opening_sat_f1), t1:returnObj(params.opening_sat_t1), f2:returnObj(params.opening_sat_f2), t2:returnObj(params.opening_sat_t2), f3:returnObj(params.opening_sat_f3), t3:returnObj(params.opening_sat_t3)};
-			break;
-			case 'Sun':
-			hours = {f1:returnObj(params.opening_sun_f1), t1:returnObj(params.opening_sun_t1), f2:returnObj(params.opening_sun_f2), t2:returnObj(params.opening_sun_t2), f3:returnObj(params.opening_sun_f3), t3:returnObj(params.opening_sun_t3)};
-			break;
-		}
-		return hours;
-	}
-
-var $input_time = $('.timepicker').pickatime({
-	formatLabel: 'H:i',
-	formatSubmit: 'H:i',
-	format: 'H:i',
-	interval: returnObj(params.max_order_days),
-	min: returnObj(params.min_time),
-	max: returnObj(params.max_time),
-	editable: false
-});
-
-var picker_time = $input_time.pickatime('picker')
-var $input = $('.datepicker').pickadate({
-
-	onSet: function() {
-		picker = this;
-		pick_date_obj = picker.get('select', 'ddd');
-		if(pick_date_obj) { 
-			$('.timepicker').textinput({ disabled: false });
-			$('#timepicker').val('Please select a time');
-		} else {
-			$('.timepicker').textinput({ disabled: true });
-			$('#timepicker').val('Please select a date');
-		}
-		picker_time.render(true);
-		setTimepicker(getHours(pick_date_obj));
-	},
-
-	format: 'yyyy-mm-dd',
-	formatSubmit: 'yyyy-mm-dd',
-	firstDay: 1,
-	min: true,
-	max: returnObj(params.max_order_days),
-	editable: false, 
-	'disable': [ returnObj(params.disabled_day) ]
-});	
-
-simpleCart({
-	cartColumns: [
-	{ view:'image' , attr:'thumb', label: false},            
-	{view : function(item, column){
-				line = item.get('name');
-				if(item.get('mtype') >=1000 ) {
-					line = line + "<br />Burger: " + item.get('burger');
-					line = line + "<br />Drink: " + item.get('drink');
-					line = line + "<br />Side: " + item.get('side');
-					if(item.get('dessert') >0 ) line = line + "<br />Dessert: " + item.get('dessert');
-				}
-				if(item.get('friessauce') >0 ) line = line + "<br />Sauce: " + item.get('friessauce');
-				if(item.get('extracheese') >0 ) line = line + "<br />+ Cheese";
-				if(item.get('extragf') >0 ) line = line + "<br />+ Gluten free";
-	            return line;
-	},
-	            attr : 'Products', label: "Products"},
-	{ view: "currency", attr: "price", label: "Price"},
-	{ view: "increment", label: false},
-	{ attr: "quantity", label: "Qty"},
-	{ view: "decrement", label: false},
-	{ view: "currency", attr: "total", label: "SubTotal" },
-	{ attr: "mtype", label: "mType"},
-	{ attr: "mid", label: "mId"}, 
-	{ view: "remove", text: "Remove", label: false}
-	],
-	cartStyle: "table",
-	checkout: {
-		type: "PayPal" ,
-		success: params.url_paypal_success, 
-		cancel: params.url_paypal_cancel,
-		sandbox: true,
-		email: params.email_paypal
-	},
-	currency: "EUR",
-	data: {},
-	language: "english-us",
-	//to avoid seeing it on paypal
-	excludeFromCheckout: ['thumb', 'mtype', 'burger', 'extracheese', 'extragf', 'side', 'friessauce', 'drink', 'dessert', 'mid', 'mtype'],
-	shippingCustom: null,
-	shippingFlatRate: 0,
-	shippingQuantityRate: 0,
-	shippingTotalRate: 0,
-	taxRate: 0,
-	taxShipping: false,
-	beforeAdd            : null,
-	afterAdd            : null,
-	load                : null,
-	beforeSave        : null,
-	afterSave            : null,
-	update            : null,
-	ready            : null,
-	checkoutSuccess    : null,
-	checkoutFail        : null,
-	beforeCheckout        : null,
-	beforeRemove : null
-});
-
-function getExtraPrice(extra) {
-	var extra_price = extra.split("_"); 
-	return parseFloat(extra_price[1]);
-}
-
-function show(type, menu_type) {
-	var contain = '';
-
-	var cheese_select = 'Cheese : <select id="item_extracheese" name="item_extracheese" class="item_extracheese"><option value="0">without</option><option value="1">with</option></select> + ' + params.extracheese_price + '€<br/>';	
-	var gf_select = 'Gluten free bread : <select id="item_extragf" name="item_extragf" class="item_extragf"><option value="0">without</option><option value="1">with</option></select> + ' + params.extragf_price + '€<br/>';
-
-	if(type == 'menu_choose') {
-		contain = '<a onclick="show(\'menu_create\',1);" href="#">MENU ' + params.menu_1_name + '</a> <br /> \
-		<a onclick="show(\'menu_create\',2);" href="#">MENU ' + params.menu_2_name + '</a> <br />';
-	}
-	if(type == 'menu_create') {
-		var menu_name	= params.menu_1_name;
-		var menu_price	= params.menu_1_price;
-		var mtype		= 1000;
-
-		if(menu_type == 2) {
-			menu_name	= params.menu_2_name;
-			menu_price	= params.menu_2_price;
-			var mtype		= 1001;
-
-		}
-		contain = '<div class="simpleCart_shelfItem"> \
-		<img class="item_thumb" src="tmp.png"><br /> \
-		<h2 class="item_name">Menu ' + menu_name + '</h2><br />MTYPE: <span class="item_mtype">' + mtype + '</span><br />';
-		contain = contain + '<span class="item_price">' + menu_price + '</span>€<br />';
-
-		contain = contain + 'BURGER : <select name="item_burger" class="item_burger">';
-		$.each(products, function(key, val) {
-			var extra = '';
-			if(val.att) {
-				var extra_price = getExtraPrice(val.att); 
-				var extra = '+' + extra_price + '€';
-			}
-			if(val.type == 1) contain = contain + '<option value="' + val.id + '">' + val.name + ' ' + extra + '</option>';	
-		});
-		contain = contain + '</select><br />';
-		contain = contain + cheese_select;
-		contain = contain + gf_select;
-
-		contain = contain + '<br />SIDE : <select id="item_side" name="item_side" class="item_side">';
-		$.each(products, function(key, val) { 
-			if(val.type == 2) contain = contain + '<option value="' + val.id + '">' + val.name + '</option>';
-		});
-		
-		contain = contain + '</select> | Sauces : ' + selectSauce(100)  + '<br />';
-		
-		contain = contain + 'DRINK : <select name="item_drink" class="item_drink">';
-		$.each(products, function(key, val) {
-			var extra = '';
-			if(val.att) {
-				var extra_price = val.att.split("_"); 
-				var extra = '+' + extra_price[1] + '€';
-			}
-			if(val.type == 3) contain = contain + '<option value="' + val.id + '">' + val.name + ' ' + extra + '</option>';		
-		});
-		contain = contain + '</select><br />';
-
-		if(menu_type == 2) {
-			contain = contain + 'DESSERT : <select name="item_dessert" class="item_dessert">';
-			$.each(products, function(key, val) {
-				if(val.type == 4) contain = contain + '<option value="' + val.id + '">' + val.name + '</option>';
-			});
-			contain = contain + '</select><br />';
-		}	
-
-		contain = contain + '<a class="item_add" href="javascript:;"> Add to Cart </a> </div>';
-		 
-	} else {
-
-		$.each(products, function(key, val) {
-			if(val.type == type) {
-				contain = contain + '<div class="simpleCart_shelfItem"> \
-				<h2 class="item_name">' + val.name + '</h2> ' + val.detail + ' \
-				<span class="item_price">' + val.price + '</span>€ \
-				<img class="item_thumb" src="' + val.image + '"><br /> \
-				<input type="hidden" class="item_mtype" name="item_mtype" value="' + val.type + '" > \
-				<input type="hidden" class="item_mid" name="item_mid" value="' + val.id + '" ><br/>';
-
-				if(val.type == 1) {
-					contain = contain + cheese_select;
-					contain = contain + gf_select;
-				}
-				contain = contain + 'Sauces : ' + selectSauce(100)  + '<br />';
-				contain = contain + '<a class="item_add" href="javascript:;"> Add to Cart </a> </div>';
-			}
-		});
-	}
-	document.getElementById("main").innerHTML = contain;
-};
-
-function selectSauce(type) {	
-	var txt = '<select id="item_friessauce" name="item_friessauce" class="item_friessauce"><option value="' + 0 + '">none</option>';
-	$.each(products, function(key, val) { 
-		if(val.type == type) txt = txt + '<option value="' + val.id + '">' + val.name + '</option>';
+	
+	var $input_time = $('.timepicker').pickatime({
+		formatLabel: 'H:i',
+		formatSubmit: 'H:i',
+		format: 'H:i',
+		clear: t._('Clear'),
+		interval: returnObj(params.pickup_intervals),
+		min: returnObj(params.min_time),
+		max: returnObj(params.max_time),
+		editable: false
 	});
-	txt = txt + '</select>';
-	return txt;
-}
+	var picker_time = $input_time.pickatime('picker')
+	var $input = $('.datepicker').pickadate({
+		onSet: function() {
+			picker = this;
+			pick_date_obj = picker.get('select', 'dddd');
+			if(pick_date_obj) { 
+				$('.timepicker').textinput({ disabled: false });
+				$('#timepicker').val(t._('Please select a time'));
+			} else {
+				$('.timepicker').textinput({ disabled: true });
+				$('#timepicker').val(t._('Please select a date'));
+			}
+			picker_time.render(true);
+			if(pick_date_obj) setTimepicker(getHours(pick_date_obj));
+		},
+		monthsFull: [t._('January'), t._('February'), t._('March'), t._('April'), t._('May'), t._('June'), t._('July'), t._('August'), t._('September'), t._('October'), t._('November'), t._('December')],
+		weekdaysShort: [t._('Sun'), t._('Mon'), t._('Tue'), t._('Wed'), t._('Thu'), t._('Fri'), t._('Sat')],
+		today: t._('Today'),
+		clear: t._('Clear'),
+		format: date_format,
+		formatSubmit: 'yyyy-mm-dd',
+		firstDay: 1,
+		min: true,
+		max: returnObj(params.max_order_days),
+		editable: false, 
+		'disable': [ returnObj(params.disabled_day) ]
+	});	
 
-//add extras to cart
-simpleCart.bind( 'beforeAdd' , function( item )
-{
-	var plus_price = 0;
-	if( item.get( 'extracheese' ) == 1 ) {			
-		plus_price = plus_price + parseFloat(params.extracheese_price);
-	}
-	if( item.get( 'extragf' ) == 1 ) {			
-		plus_price = plus_price + parseFloat(params.extragf_price);
-	}
-	if( item.get( 'mtype' ) >= 1000 ) {
-		var drink_id = item.get( 'drink' );
-		products_vars = products[drink_id];
-		products_att = products_vars['att'];
-		if(products_att) {
-			extra_price = getExtraPrice(products_att);
-			plus_price = parseFloat(plus_price) + parseFloat(extra_price);
+	//Cart columns init
+	simpleCart({
+		cartColumns: [
+		{ view:'image' , attr:'thumb', label: false},         
+		{view : function(item, column){
+			line = item.get('name');
+			if(item.get('stype') >=1000 ) {
+				line = line + "<br />" + t._('Burger:') + ' ' + getPdtName(item.get('burger'));
+				line = line + "<br />" + t._('Drink:') + ' ' + getPdtName(item.get('drink'));
+				line = line + "<br />" + t._('Side:') + ' ' + getPdtName(item.get('side'));
+				if(item.get('dessert') >0 ) line = line + "<br />" + t._('Dessert:') + ' ' + getPdtName(item.get('dessert'));
+			}
+			if(item.get('friessauce') >0 ) line = line + "<br />" + t._('Sauce: ') + getPdtName(item.get('friessauce'));
+			if(item.get('extracheese') >0 ) line = line + "<br />+ " + t._('vegan cheese');
+			if(item.get('extragf') >0 ) line = line + "<br />+ " + t._('gluten free option');
+			return line;
+		},
+		attr : 'Products', label: t._('Products')},
+		{ view: "currency", attr: "price", label: t._('Price')},
+		{ view: "increment", label: false},
+		{ attr: "quantity", label: t._('Qty')},
+		{ view: "decrement", label: false},
+		{ view: "currency", attr: "total", label: t._('SubTotal') },
+		{ view: "remove", text: t._('Remove'), label: false}
+		],
+		cartStyle: "table",
+		checkout: {
+			type: "PayPal" ,
+			success: params.url_paypal_success, 
+			cancel: params.url_paypal_cancel,
+			sandbox: true,
+			email: params.email_paypal
+		},
+		currency: "EUR",
+		data: {},
+		language: "english-us",
+		//to avoid seeing it on paypal
+		excludeFromCheckout: ['thumb', 'burger', 'extracheese', 'extragf', 'side', 'friessauce', 'drink', 'dessert', 'mid', 'stype'],
+		shippingCustom: null,
+		shippingFlatRate: 0,
+		shippingQuantityRate: 0,
+		shippingTotalRate: 0,
+		taxRate: 0,
+		taxShipping: false,
+		beforeAdd            : null,
+		afterAdd            : null,
+		load                : null,
+		beforeSave        : null,
+		afterSave            : null,
+		update            : null,
+		ready            : null,
+		checkoutSuccess    : null,
+		checkoutFail        : null,
+		beforeCheckout        : null,
+		beforeRemove : null
+	});
+
+	//add extras to cart
+	simpleCart.bind( 'beforeAdd' , function( pdt )
+	{
+		var plus_price = 0;
+		if( pdt.get( 'extracheese' ) == 1 ) {			
+			plus_price = plus_price + parseFloat(params.extracheese_price);
 		}
+		if( pdt.get( 'extragf' ) == 1 ) {			
+			plus_price = plus_price + parseFloat(params.extragf_price);
+		}
+		if( pdt.get( 'stype' ) >= 1000 ) {
+			
+			//start - Higly ugly patch because: https://github.com/wojodesign/simplecart-js/issues/498
+			var d = pdt.get('drink');
+			var d_id = d.substring(d.lastIndexOf(',') + 1).trim();
+			pdt.set("drink", d_id);
+			
+			var b = pdt.get('burger');
+			var b_id = b.substring(b.lastIndexOf(',') + 1).trim();
+			pdt.set("burger", b_id);
+
+			var s = pdt.get('side');
+			var s_id = s.substring(s.lastIndexOf(',') + 1).trim();
+			pdt.set("side", s_id);
+			
+			var sa = pdt.get('friessauce');
+			var sa_id = sa.substring(sa.lastIndexOf(',') + 1).trim();
+			pdt.set("friessauce", sa_id);			
+						
+			var si = pdt.get('side');
+			var si_id = si.substring(si.lastIndexOf(',') + 1).trim();
+			pdt.set("side", si_id);
+			
+			if(pdt.get('dessert')) {
+				var de = pdt.get('dessert');
+				var de_id = de.substring(de.lastIndexOf(',') + 1).trim();
+				pdt.set("dessert", de_id);
+			}
+			//end
+			
+			products_vars = products[d_id];
+			products_att = products_vars['att'];
+			if(products_att) {
+				extra_price = getExtraPrice(products_att);
+				plus_price = parseFloat(plus_price) + parseFloat(extra_price);
+			}
+		}
+		pdt.price( pdt.get( 'price' ) + parseFloat(plus_price) );
 	}
-	item.price( item.get( 'price' ) + parseFloat(plus_price) );
-}
 );
 
-function goCheckout() {
+// Translation 
+$('a#bt-back').text($.i18n._('Back'));
+$('div#title_cart').text($.i18n._('Cart'));
+$('div#title_menu').text($.i18n._('Menu'));
+$('div#title_pickup').text($.i18n._('Pickup'));
+$('a#bt-menus').text($.i18n._('Menus'));
+$('a#bt-burgers').text($.i18n._('Burgers'));
+$('a#bt-drinks').text($.i18n._('Drinks'));
+$('a#bt-sides').text($.i18n._('Sides'));
+$('a#bt-desserts').text($.i18n._('Desserts'));
+$('div#main').text($.i18n._('Please choose your items'));
+$('div#cart_total').text($.i18n._('Total VAT:'));
+$('a#bt-cart').text($.i18n._('Cart'));
+$('a#bt-empty_cart').text($.i18n._('Empty cart'));
+$('a#bt-checkout').text($.i18n._('Checkout'));
+$('p#order-when').text($.i18n._('When do you want to pick it up ?'));
+$('p#order-hour').text($.i18n._('Our restaurant is open from:'));
+$('label#order-phone').text($.i18n._('Your phone number:'));
+$('label#order-email').text($.i18n._('Your email:'));
+$('label#order-name').text($.i18n._('Your name:'));
+$('p#order-total').text($.i18n._('Total order:'));
+$('input[type=submit]#order-checkout').text($.i18n._('Checkout'));
 
-	var validator = $( "#order" ).validate({	
-		submitHandler: function(form) {	
-		}, 
-		errorClass: "form-invalid",
-		validClass: "form-success",
-		rules: {
-			datepicker: {
-				required: true,
-				minlength: 3,
-				maxlength: 30,
-				date: true
-			},
-			timepicker: {
-				required: true,
-				minlength: 3,
-				maxlength: 6,
-			},		
-			name: {
-				required: true,
-				minlength: 2,
-				maxlength: 30
-			},
-			email: {
-				required: true,
-				email: true,
-				minlength: 3,
-				maxlength: 50
-			},
-			phone: {
-				required: true,
-				minlength: 5,
-				maxlength: 30
-			}
-		}
-	});
-	
-	validator.form();
-	var errors = validator.numberOfInvalids();
-	if(errors > 0) {
-	} else {
-		var tnxid = getTnxId();
-	}
-}
-
-function getTnxId() {
-
-	var url=params.payment_init_url;
-	var cart=JSON.parse(localStorage["simpleCart_items"]);
-	url = url + 'format/json/?callback=?';
-	
-	//send payment info to remote server
-	var info={"email":$( "#email" ).val(), 
-	"name": $( "#name" ).val(), 
-	"phone": $( "#phone" ).val(),
-	"date": $( "#datepicker" ).val(),
-	"amount": simpleCart.grandTotal(),
-	"time": $( "#timepicker" ).val()};
-	var topost = {cart : cart, info : info};
-	
-	$.ajax({
-		url : url,
-		type: "POST",
-		data: JSON.stringify(topost),
-		success: function(response, textStatus, jqXHR)
-		{	
-			if(response.tnxid.substr(0,4) == 'TNX-') {	
-				simpleCart.bind( 'beforeCheckout' , function( data ){
-					//send tnxid to payment platform 
-					data.custom			= response.tnxid;
-					//for paypal autofill
-					data.email			= $( "#email" ).val();
-					data.first_name		= $( "#name" ).val();
-					data.night_phone_a	= $( "#phone" ).val();
-				});
-				//if timestamp from server now and get data exeed x hours, get error and resdirect to home
-				ts = localStorage["ts"];
-				var tstest = response.ts - ts;
-				if(tstest > 10800) {
-					alert('Your basket is too old, please go back to home and make a new one...');
-					window.location.replace("index.html");
-				} else {
-					simpleCart.checkout();
-				}				
-			} else {
-				alert('Communication server fail, are you connected to the Internet?');
-			}
-		},
-		error: function(jqXHR, textStatus, errorThrown)
-		{
-			alert('Communication server fail, are you connected to the Internet?');
-		}
-	});
-}
-
+//no timestamp set from index page = error message + hide navbar
 ts = localStorage["ts"];
 $("#navbar").parent().hide();
-//no timestamp set from index page = error message
 if (isNaN(ts))  { 
-	alert('Communication server fail, are you connected to the Internet?');
+	alert(t._('Communication server fail, are you connected to the Internet?'));
 } else {
 	enableDiv("#navbar");
 }
