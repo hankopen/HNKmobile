@@ -168,7 +168,7 @@ function show(type, menu_type) {
 				var extra_price = getExtraPrice(val.att); 
 				var extra = '+' + extra_price + '€';
 			}
-			if(val.type == 1) contain = contain + '<option value="' + val.id + '">' + val.name + ': ' +  translateText(val.detail) + ' ' + extra + '</option>';	
+			if(val.type == 1) contain = contain + '<option value="' + val.id + '">' + translateText(val.name) + ': ' +  translateText(val.detail) + ' ' + extra + '</option>';	
 		});
 		contain = contain + '</select></div>';
 
