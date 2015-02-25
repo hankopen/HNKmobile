@@ -67,7 +67,8 @@ function checkEmptyCart() {
 }
 
 function getPdtName(id) {
-	return products[id].name;
+	var result = $.grep(products, function(e){ return e.id == id; });
+	return result[0].name;
 }
 
 function getTnxId() {
@@ -196,7 +197,7 @@ function show(type, menu_type) {
 		if(menu_type == 2) {
 			contain = contain + '<label for="item_dessert" class="select">' + $.i18n._('Dessert:') +'</label><select id="item_dessert" name="item_dessert" class="item_dessert">';
 			$.each(products, function(key, val) {
-				if(val.type == 4) contain = contain + '<option value="' + val.id + '">' + val.name + '</option>';
+				if(val.type == 4) contain = contain + '<option value="' + val.id + '">' + translateText(val.name) + '</option>';
 			});
 			contain = contain + '</select>';
 		}	
@@ -249,15 +250,6 @@ function show(type, menu_type) {
 	$('#item_burger, #item_side, #item_sauce, #item_drink, #item_friessauce, #item_dessert').selectmenu("option", "defaults", true);
 	$( "[type='submit']" ).button();
 };
-
-function translateText(text) {
-	var lang = localStorage["lang"];
-	var t = text.split('[:]', 2);
-	if(lang == 'fr') { return t[1];
-	} else {  
-		return t[0];
-	}
-}
 
 function getExtraPrice(extra) {
 	var extra_price = extra.split("_"); 

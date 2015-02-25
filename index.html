@@ -24,7 +24,7 @@
 
 		<div id="content" data-role="content" data-theme="a">
 			<p id="intro">Select, purchase and come pick up your order at the time of your choice!</p> 
-			<a id="order" href="menu.html" onclick="setLanguage(en);" data-transition="none" rel="external" data-role="button" data-inline="true" data-icon="carat-r" data-iconpos="right">Order</a>
+			<a id="order" href="menu.html" onclick="" data-transition="none" rel="external" data-role="button" data-inline="true" data-icon="carat-r" data-iconpos="right">Order</a>
 						<p id="info">Hank, 55 rue des Archives 75003 Paris, open 7/7 from 12h to 22h.</p> 
 		</div>
 		
@@ -63,16 +63,6 @@ function getServerVars(lang) {
 	.fail( function(d, textStatus, error) {
 		alert($.i18n._('Cannot load data, are you connected to the Internet?'));
 	});
-
-	/**
-	//TODO demo params
-	var ts = 1408110097;
-	var params = { }; 
-	var products = '';
-	localStorage.setItem('products', products);
-	localStorage.setItem('params', JSON.stringify(params));
-	localStorage.setItem('ts', ts);
-	**/
 }
 
 </script>

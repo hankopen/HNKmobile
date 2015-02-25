@@ -103,7 +103,7 @@
 
 	var products = JSON.parse(localStorage["products"]);
 	var params = JSON.parse(localStorage["params"]);
-	
+
 	//date & time picker init
 	$('#timepicker').val(t._('Please select a date'));
 	$('.timepicker').textinput({ disabled: true });
@@ -242,8 +242,9 @@
 			}
 			//end
 			
-			products_vars = products[d_id];
-			products_att = products_vars['att'];
+			//add extra price in product att	
+			var result_pdt = $.grep(products, function(e){ return e.id == d_id; });
+			products_att = result_pdt[0]['att'];
 			if(products_att) {
 				extra_price = getExtraPrice(products_att);
 				plus_price = parseFloat(plus_price) + parseFloat(extra_price);
