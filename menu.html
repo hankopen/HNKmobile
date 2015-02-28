@@ -212,6 +212,15 @@
 		if( pdt.get( 'extragf' ) == 1 ) {			
 			plus_price = plus_price + parseFloat(params.extragf_price);
 		}
+		
+		//start - Higly ugly patch because: https://github.com/wojodesign/simplecart-js/issues/498
+		if(pdt.get('friessauce')) {
+			var sa = pdt.get('friessauce');
+			var sa_id = sa.substring(sa.lastIndexOf(',') + 1).trim();
+			pdt.set("friessauce", sa_id);			
+		}
+		//end
+		
 		if( pdt.get( 'stype' ) >= 1000 ) {
 			
 			//start - Higly ugly patch because: https://github.com/wojodesign/simplecart-js/issues/498
