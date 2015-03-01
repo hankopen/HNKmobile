@@ -51,6 +51,8 @@
 }
 .form-success { background: #00713f; }
 
-#build {
+#build a, #build {
 	font-size: x-small;
+	font-family:arial; 
+	text-decoration:none
 }

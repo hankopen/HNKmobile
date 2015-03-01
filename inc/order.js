@@ -22,6 +22,10 @@ function goCheckout() {
 				minlength: 2,
 				maxlength: 30
 			},
+			comment: {
+				required: false,
+				maxlength: 300
+			},
 			email: {
 				required: true,
 				email: true,
@@ -54,6 +58,7 @@ function goCheckout() {
 	} else {
 		var tnxid = getTnxId();
 	}
+	this.target='_blank';
 }
 
 function checkEmptyCart() {
@@ -80,6 +85,7 @@ function getTnxId() {
 	//send payment info to remote server
 	var info={"email":$( "#email" ).val(), 
 	"name": $( "#name" ).val(), 
+	"comment": $( "#comment" ).val(),
 	"phone": $( "#phone" ).val(),
 	"date": $( "#datepicker" ).val(),
 	"amount": simpleCart.grandTotal(),
@@ -153,7 +159,7 @@ function show(type, menu_type) {
 		if(menu_type == 2) {
 			menu_name	= params.menu_2_name;
 			menu_price	= params.menu_2_price;
-			menu_img 	=  params.img_path + params.menu_2_img;
+			menu_img 	= params.img_path + params.menu_2_img;
 			var stype	= 1001;
 		}
 
@@ -228,9 +234,6 @@ function show(type, menu_type) {
 					contain = contain + '<tr><td> ' + detail + ' <br /><br /></td></tr>';
 				}
 
-				contain = contain + '<input type="hidden" class="item_stype" name="item_stype" value="' + val.type + '" > \
-				<input type="hidden" class="item_mid" name="item_mid" value="' + val.id + '" >';
-
 				if(val.type == 1) {
 					contain = contain + '<tr><td>' + cheese_select + '</tr></td>';
 					contain = contain + '<tr><td>' + gf_select + '</tr></td>';
@@ -238,7 +241,10 @@ function show(type, menu_type) {
 				if(val.type == 2) {
 					contain = contain + '<tr><td>' + sauce_select  + '</tr></td>';
 				}
-				contain = contain + '<tr><td><input type="submit" id="submit" class="item_add" value="' +$.i18n._('Add to Cart') + '" /><br /><hr align="left" width="100%" /></td></tr></table></div>';
+				contain = contain + '<tr><td><input style="display:none;" type="text" class="item_mid" name="item_mid" value="' + val.id + '" > \
+				<input style="display:none;" type="text" class="item_stype" name="item_stype" value="' + val.type + '" > \
+				<input type="submit" id="submit" class="item_add" value="' +$.i18n._('Add to Cart') + '" /><br /> \
+				<hr align="left" width="100%" /></td></tr></table></div>';
 			}
 		});
 	}

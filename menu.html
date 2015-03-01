@@ -75,6 +75,8 @@
 				<p></p>
 				<label id="order-name" for="name">Your name:</label>   
 				<input name="name" id="name" value="" required/>
+				<label id="order-comment" for="comment">Any comment ?</label>   
+				<input name="comment" id="comment" value="" required/>
 				<p id="order-total">Total order:</p> <span class="simpleCart_grandTotal"></span>
 				<p></p>
 				<input id="order-checkout" type="submit" value="Checkout" onclick="goCheckout();" rel="external" data-transition="none" data-icon="carat-r" data-role="button" data-inline="true"/>
@@ -283,6 +285,7 @@ $('p#order-hour').text($.i18n._('Our restaurant is open from:'));
 $('label#order-phone').text($.i18n._('Your phone number:'));
 $('label#order-email').text($.i18n._('Your email:'));
 $('label#order-name').text($.i18n._('Your name:'));
+$('label#order-comment').text($.i18n._('Any comment ?'));
 $('p#order-total').text($.i18n._('Total order:'));
 $('input[type=submit]#order-checkout').text($.i18n._('Checkout'));
 
