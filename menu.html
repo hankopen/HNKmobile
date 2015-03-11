@@ -174,11 +174,8 @@
 		],
 		cartStyle: "table",
 		checkout: {
-			type: "PayPal" ,
-			success: params.url_paypal_success, 
-			cancel: params.url_paypal_cancel,
-			sandbox: true,
-			email: params.email_paypal
+			type: "SendForm" ,
+			url: params.url_payment_process
 		},
 		currency: "EUR",
 		data: {},
