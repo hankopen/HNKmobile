@@ -58,7 +58,6 @@ function goCheckout() {
 	} else {
 		var tnxid = getTnxId();
 	}
-	this.target='_blank';
 }
 
 function checkEmptyCart() {
