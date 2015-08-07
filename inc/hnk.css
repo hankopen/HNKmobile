@@ -1,18 +1,51 @@
-#main {
-	margin: 0px;
-	padding: 0px;
+body {
+	font-size: 100%;
+	background: url(bkg.jpg) no-repeat center fixed;
+	-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+	background-size: cover; /* version standardisée */
+	-moz-transform: scale(0.9, 0.9); /* Moz-browsers */
+	zoom: 0.9; /* Other non-webkit browsers */
+	zoom: 90%; /* Webkit browsers */	
+}
+
+#Home, #menu, #cart, #pickup
+{
 	position: relative;
+	width: 500px;
+	margin-top: 5px;
+  	margin-left: auto;
+  	margin-right: auto;
+  	box-shadow: 1px 1px 12px #555;
+}
+
+#logo {
+	margin: auto;
+    width: 350px;
+
+}
+
+#logo img {
+	width: 350px;
+	height: 350px;
+	margin-top: 8px;
+	margin-bottom: 8px;
+	
 }
 
 .simpleCart_items table{
-	border:1px solid #ccc;
+	border:0px solid #ccc;
 	width: 100%;
 }
+
+.simpleCart_items a{
+	text-decoration: none;
+}
+
 .simpleCart_items th{
 	color:#333;
 	text-align:left;
 	padding: 10px 5px;
-	border-bottom:1px solid #ccc;
+	border-bottom:0px solid #ccc;
 	background: #ededed;
 	background: -moz-linear-gradient(top,  #f7f7f7 0%, #ededed 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#ededed));

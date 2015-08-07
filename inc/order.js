@@ -146,8 +146,8 @@ function show(type, menu_type) {
 	sauce_select = sauce_select + '</select>';
 
 	if(type == 'menu_choose') {
-		contain = '<a onclick="show(\'menu_create\',1);" href="#"><img class="item_thumb" src="' + params.img_path + params.menu_1_img + '"></a> <br /> <a onclick="show(\'menu_create\',1);" href="#">' + $.i18n._('burger + side + drink') + ' ' + params.menu_1_price + '€</a>  <br /> <hr align="left" width="285" /> \
-		<a onclick="show(\'menu_create\',2);" href="#"><img class="item_thumb" src="' + params.img_path + params.menu_2_img + '"></a> <br /> <a onclick="show(\'menu_create\',2);" href="#">' + $.i18n._('burger + side + drink + dessert') + ' ' + params.menu_2_price + '€</a> <br />';
+		contain = '<center><a onclick="show(\'menu_create\',1);" href="#"><img class="item_thumb" src="' + params.img_path + params.menu_1_img + '"></a> <br /> <a onclick="show(\'menu_create\',1);" href="#">' + $.i18n._('burger + side + drink') + ' ' + params.menu_1_price + '€</a>  <br /> <br />  \
+		<a onclick="show(\'menu_create\',2);" href="#"><img class="item_thumb" src="' + params.img_path + params.menu_2_img + '"></a> <br /> <a onclick="show(\'menu_create\',2);" href="#">' + $.i18n._('burger + side + drink + dessert') + ' ' + params.menu_2_price + '€</a></center>';
 	}
 	if(type == 'menu_create') {
 		var menu_name	= params.menu_1_name;
@@ -218,7 +218,7 @@ function show(type, menu_type) {
 				var detail = translateText(val.detail);
 
 				contain = contain + '<div class="simpleCart_shelfItem"> \
-				<table border="0"><tr><td><h2 class="item_name">' + translateText(val.name) + '</h2><span class="item_price">' + val.price + '</span>€</h2></td></tr>';
+				<table border="0" width="100%"><tr><td><h2 class="item_name">' + translateText(val.name) + '</h2><span class="item_price">' + val.price + '</span>€</h2></td></tr>';
 
 				//Avoid missing image in cart if product has not
 				if(val.image) {
@@ -243,7 +243,7 @@ function show(type, menu_type) {
 				contain = contain + '<tr><td><input style="display:none;" type="text" class="item_mid" name="item_mid" value="' + val.id + '" > \
 				<input style="display:none;" type="text" class="item_stype" name="item_stype" value="' + val.type + '" > \
 				<input type="submit" id="submit" class="item_add" value="' +$.i18n._('Add to Cart') + '" /><br /> \
-				<hr align="left" width="100%" /></td></tr></table></div>';
+				<hr style="border: 1px solid silver;" align="left" width="100%" /></td></tr></table></div>';
 			}
 		});
 	}

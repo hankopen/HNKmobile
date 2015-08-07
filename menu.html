@@ -15,14 +15,15 @@
 	<script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
+	<div id="logo"><img src="inc/logoblanc.png"></div>
 	<div data-role="page" id="menu" data-theme="a">
 		<div data-role="header" data-theme="a">
-
 			<div data-role="header">
 				<a href="index.html" rel="external" data-transition="none" id="bt-back" data-icon="carat-l">Back</a>
-				<h1 id="main_title">Menu</h1>
+				<h1 id="main_title">Menu</h1><p style="margin-top:-7px"/></p>
 				<a href="#cart" rel="external" data-transition="none" data-icon="shop"><span class="simpleCart_quantity"></span> items | <span class="simpleCart_grandTotal"></span></a>
 			</div>
+			
 			<div id="navbar" data-role="navbar">
 				<ul>
 					<li><a id="bt-menus" data-icon="carat-d" onclick="show('menu_choose',0);" href="#menu">Menus</a></li>
@@ -40,7 +41,7 @@
 	<div data-role="page" id="cart" data-theme="a">
 		<div data-role="header">
 			<a href="#menu" rel="external" id="bt-menu" data-transition="none" data-icon="carat-l">Menu</a>
-			<h1 id="main_title"><div id="title_cart">Cart</div></h1>
+			<h1 id="main_title"><div id="title_cart">Cart</div></h1><p style="margin-top:-7px"/></p>
 		</div><!-- /header -->
 		<div id="content" data-role="content" data-theme="a">
 			<div class="simpleCart_items"></div>
@@ -57,7 +58,7 @@
 	<div data-role="page" id="pickup" data-theme="a">
 		<div data-role="header">
 			<a id="bt-cart" href="#cart" data-transition="none" data-icon="carat-l">Cart</a>
-			<h1 id="main_title"><div id="title_pickup">Pickup</div></h1>
+			<h1 id="main_title"><div id="title_pickup">Pickup</div></h1><p style="margin-top:-7px"/></p>
 			<a href="#cart" rel="external" data-transition="none" data-icon="grid"><span class="simpleCart_quantity"></span> items | <span class="simpleCart_grandTotal"></span></a>
 		</div>
 		<div id="content" data-role="content" data-theme="a">
