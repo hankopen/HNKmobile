@@ -24,7 +24,6 @@ if ( $detect->isMobile() ) $m = true;
 			zoom: 0.9; /* Other non-webkit browsers */
 			zoom: 90%; /* Webkit browsers */	
 		}
-		
 		#Home, #menu, #cart, #pickup
 		{
 			position: relative;

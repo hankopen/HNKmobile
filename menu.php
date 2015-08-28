@@ -61,7 +61,7 @@ if ( $detect->isMobile() ) $m = true;
 		<div data-role="header" data-theme="a">
 			<div data-role="header">
 				<a href="index.php" rel="external" data-transition="none" id="bt-back" data-icon="carat-l">Back</a>
-				<h1 id="main_title">Menu</h1><p style="margin-top:-7px"/></p>
+				<h1 id="main_title">Menu</h1>
 				<a href="#cart" rel="external" data-transition="none" data-icon="shop"><span class="simpleCart_quantity"></span> items | <span class="simpleCart_grandTotal"></span></a>
 			</div>
 			
@@ -99,7 +99,7 @@ if ( $detect->isMobile() ) $m = true;
 	<div data-role="page" id="pickup" data-theme="a">
 		<div data-role="header">
 			<a id="bt-cart" href="#cart" data-transition="none" data-icon="carat-l">Cart</a>
-			<h1 id="main_title"><div id="title_pickup">Pickup</div></h1><p style="margin-top:-7px"/></p>
+			<h1 id="main_title"><div id="title_pickup">Pickup</div></h1>
 			<a href="#cart" rel="external" data-transition="none" data-icon="grid"><span class="simpleCart_quantity"></span> items | <span class="simpleCart_grandTotal"></span></a>
 		</div>
 		<div id="content" data-role="content" data-theme="a">
