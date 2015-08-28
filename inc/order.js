@@ -146,8 +146,8 @@ function show(type, menu_type) {
 	sauce_select = sauce_select + '</select>';
 
 	if(type == 'menu_choose') {
-		contain = '<center><a onclick="show(\'menu_create\',1);" href="#"><img class="item_thumb" src="' + params.img_path + params.menu_1_img + '"></a> <br /> <a onclick="show(\'menu_create\',1);" href="#">' + $.i18n._('burger + side + drink') + ' ' + params.menu_1_price + '€</a>  <br /> <br />  \
-		<a onclick="show(\'menu_create\',2);" href="#"><img class="item_thumb" src="' + params.img_path + params.menu_2_img + '"></a> <br /> <a onclick="show(\'menu_create\',2);" href="#">' + $.i18n._('burger + side + drink + dessert') + ' ' + params.menu_2_price + '€</a></center>';
+		contain = '<a onclick="show(\'menu_create\',1);" href="#"><img class="item_thumb" src="' + params.img_path + params.menu_1_img + '"></a> <br /> <a onclick="show(\'menu_create\',1);" href="#">' + $.i18n._('burger + side + drink') + ' ' + params.menu_1_price + '€</a>  <br /> <br />  \
+		<a onclick="show(\'menu_create\',2);" href="#"><img class="item_thumb" src="' + params.img_path + params.menu_2_img + '"></a> <br /> <a onclick="show(\'menu_create\',2);" href="#">' + $.i18n._('burger + side + drink + dessert') + ' ' + params.menu_2_price + '€</a>';
 	}
 	if(type == 'menu_create') {
 		var menu_name	= params.menu_1_name;

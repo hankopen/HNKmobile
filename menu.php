@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<? require_once 'Mobile-Detect/Mobile_Detect.php';
+$detect = new Mobile_Detect;
+$m=false;
+if ( $detect->isMobile() ) $m = true;
+?><!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -12,14 +16,51 @@
 	<link rel="stylesheet" href="inc/pickadate/lib/themes/default.date.css" id="theme_date">
 	<link rel="stylesheet" href="inc/pickadate/lib/themes/default.time.css" id="theme_time">
 	<link rel="stylesheet" type="text/css" href="inc/hnk.css" />
+	<? if(!$m) { ?>
+		<style>
+		body {
+			font-size: 100%;
+			background: url(inc/bkg.jpg) no-repeat center fixed;
+			-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+			background-size: cover; /* version standardisée */
+			-moz-transform: scale(0.9, 0.9); /* Moz-browsers */
+			zoom: 0.9; /* Other non-webkit browsers */
+			zoom: 90%; /* Webkit browsers */	
+		}
+		
+		#Home, #menu, #cart, #pickup
+		{
+			position: relative;
+			width: 500px;
+			margin-top: 5px;
+		  	margin-left: auto;
+		  	margin-right: auto;
+		  	box-shadow: 1px 1px 12px #555;
+		}
+
+		#logo {
+			margin: auto;
+		    width: 350px;
+
+		}
+
+		#logo img {
+			width: 350px;
+			height: 350px;
+			margin-top: 8px;
+			margin-bottom: 8px;
+
+		}
+		</style>
+	<? } ?>
 	<script type="text/javascript" src="js/index.js"></script>
 </head>
 <body>
-	<div id="logo"><img src="inc/logoblanc.png"></div>
+	<? if(!$m) { ?><div id="logo"><img src="inc/logoblanc.png"></div><? } ?>
 	<div data-role="page" id="menu" data-theme="a">
 		<div data-role="header" data-theme="a">
 			<div data-role="header">
-				<a href="index.html" rel="external" data-transition="none" id="bt-back" data-icon="carat-l">Back</a>
+				<a href="index.php" rel="external" data-transition="none" id="bt-back" data-icon="carat-l">Back</a>
 				<h1 id="main_title">Menu</h1><p style="margin-top:-7px"/></p>
 				<a href="#cart" rel="external" data-transition="none" data-icon="shop"><span class="simpleCart_quantity"></span> items | <span class="simpleCart_grandTotal"></span></a>
 			</div>

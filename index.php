@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<? require_once 'Mobile-Detect/Mobile_Detect.php';
+$detect = new Mobile_Detect;
+$m=false;
+if ( $detect->isMobile() ) $m = true;
+?><!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8" />
@@ -9,17 +13,54 @@
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
 	<link rel="stylesheet" type="text/css" href="inc/jquery.mobile.structure-1.4.5.min.css" /> 
 	<link rel="stylesheet" type="text/css" href="inc/hnk.css" /> 
+	<? if(!$m) { ?>
+		<style>
+		body {
+			font-size: 100%;
+			background: url(inc/bkg.jpg) no-repeat center fixed;
+			-webkit-background-size: cover; /* pour anciens Chrome et Safari */
+			background-size: cover; /* version standardisée */
+			-moz-transform: scale(0.9, 0.9); /* Moz-browsers */
+			zoom: 0.9; /* Other non-webkit browsers */
+			zoom: 90%; /* Webkit browsers */	
+		}
+		
+		#Home, #menu, #cart, #pickup
+		{
+			position: relative;
+			width: 500px;
+			margin-top: 5px;
+		  	margin-left: auto;
+		  	margin-right: auto;
+		  	box-shadow: 1px 1px 12px #555;
+		}
+
+		#logo {
+			margin: auto;
+		    width: 350px;
+
+		}
+
+		#logo img {
+			width: 350px;
+			height: 350px;
+			margin-top: 8px;
+			margin-bottom: 8px;
+
+		}
+		</style>
+	<? } ?>	
 	<script type="text/javascript" src="js/index.js"></script>
 	<script type="text/javascript">
 	app.initialize();
 	</script>
 </head>
 <body>
-	<div id="logo"><img src="inc/logoblanc.png"></div>
+	<? if(!$m) { ?><div id="logo"><img src="inc/logoblanc.png"></div><? } ?>
 	<div data-role="page" id="Home" data-theme="a">
 		<div id="content" data-role="content" data-theme="a">
 			<p id="intro">Select, purchase and come pick up your order at the time of your choice!</p> 
-			<a id="order" href="menu.html" onclick="" data-transition="none" rel="external" data-role="button" data-inline="true" data-icon="carat-r" data-iconpos="right">Order</a>
+			<a id="order" href="menu.php" onclick="" data-transition="none" rel="external" data-role="button" data-inline="true" data-icon="carat-r" data-iconpos="right">Order</a>
 						<p id="info">Hank, 55 rue des Archives 75003 Paris, open 7/7 from 12h to 22h.</p> 
 		</div>
 		<!--<div data-role="footer">
