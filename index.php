@@ -61,6 +61,7 @@ if ( $detect->isMobile() ) $m = true;
 			<p id="intro">Select, purchase and come pick up your order at the time of your choice!</p> 
 			<a id="order" href="menu.php" onclick="" data-transition="none" rel="external" data-role="button" data-inline="true" data-icon="carat-r" data-iconpos="right">Order</a>
 						<p id="info">Hank, 55 rue des Archives 75003 Paris, open 7/7 from 12h to 22h.</p> 
+						<p id="cgv">Copyright © 2003-2015 | HANK SAS | RCS Paris 798983706 | <a data-transition="none" rel="external" href="cgv.php">CGV</a></p>			
 		</div>
 		<!--<div data-role="footer">
 			<h4><p id="build"><a href="https://github.com/hankopen/HNKmobile">Copyleft Hank 2015</a> - V0.6</p></h4>
