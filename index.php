@@ -80,8 +80,8 @@ if ( $detect->isMobile() ) $m = true;
 function getServerVars(lang) {
 	localStorage.clear();
 	var lang = navigator.language.split('-',1);
-	var apiurl = "http://hmw.dev/rest/shopping?callback=?";
-	//var apiurl = "http://hmw.hankrestaurant.com/rest/shopping?callback=?";
+	//var apiurl = "http://hmw.dev/rest/shopping?callback=?";
+	var apiurl = "http://hmw.hankrestaurant.com/rest/shopping?callback=?";
 
 	$.getJSON( apiurl, function(data) {
 		//TODO check version if upgrade needed 
