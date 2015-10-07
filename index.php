@@ -58,6 +58,7 @@ if ( $detect->isMobile() ) $m = true;
 	<? if(!$m) { ?><div id="logo"><img src="inc/logoblanc.png"></div><? } ?>
 	<div data-role="page" id="Home" data-theme="a">
 		<div id="content" data-role="content" data-theme="a">
+			<? if($m) { ?><table align="center" border="0"><tr><td><img src="inc/logo_g.png"></td></tr></table><? } ?>
 			<p id="intro">Select, purchase and come pick up your order at the time of your choice!</p> 
 			<a id="order" href="menu.php" onclick="" data-transition="none" rel="external" data-role="button" data-inline="true" data-icon="carat-r" data-iconpos="right">Order</a>
 						<p id="info">Hank, 55 rue des Archives 75003 Paris, open 7/7 from 12h to 22h.</p> 
@@ -79,8 +80,8 @@ if ( $detect->isMobile() ) $m = true;
 function getServerVars(lang) {
 	localStorage.clear();
 	var lang = navigator.language.split('-',1);
-	//var apiurl = "http://hmw.dev/rest/shopping?callback=?";
-	var apiurl = "http://hmw.hankrestaurant.com/rest/shopping?callback=?";
+	var apiurl = "http://hmw.dev/rest/shopping?callback=?";
+	//var apiurl = "http://hmw.hankrestaurant.com/rest/shopping?callback=?";
 
 	$.getJSON( apiurl, function(data) {
 		//TODO check version if upgrade needed 
